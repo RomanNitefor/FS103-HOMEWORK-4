@@ -95,12 +95,28 @@ li {
   text-decoration: none;
   padding-top: 24px;
   padding-bottom: 24px;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-menu-link:hover {
   color: #404bbf;
 }
-
+.current {
+  position: relative;
+  color: #404bbf;
+}
+.current::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-100%);
+}
 .header-menu-link:focus {
   color: #404bbf;
 }
@@ -127,6 +143,9 @@ li {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .adress-link:hover {
@@ -139,9 +158,19 @@ li {
 
 /** ----------НОВА СЕКЦІЯ HERO---------- **/
 .hero {
+  width: 1440px;
+  margin: 0 auto;
   padding-top: 188px;
   padding-bottom: 188px;
   background-color: #2e2f42;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .hero-containet {
@@ -176,6 +205,9 @@ li {
   min-width: 169px;
   margin: 0 auto;
   margin-top: 48px;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover {
@@ -214,6 +246,19 @@ li {
 .features-item {
   flex-basis: calc((100% - 72px) / 4);
 }
+.features-container-icon {
+  display: flex;
+  width: 264px;
+  height: 112px;
+  border-radius: 4px;
+  border: 1px solid var(--LIGHT-SLATE, #8e8f99);
+  background: var(--CLOUD, #f4f4fd);
+  justify-content: center;
+  align-items: center;
+}
+
+.features-icon {
+}
 
 .features-item-title {
   color: #2e2f42;
@@ -222,6 +267,7 @@ li {
   line-height: 1.2;
   letter-spacing: 0.02em;
   margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .features-item-text {
@@ -287,12 +333,40 @@ li {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  margin-bottom: 8px;
 }
 
+.team-icon-list {
+  display: flex;
+  gap: 24px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.team-icon-item {
+  width: 40px;
+  height: 40px;
+}
+.team-icon-link {
+  background-color: #4d5ae5;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .team-container {
   padding-top: 32px;
   padding-bottom: 32px;
   text-align: center;
+}
+
+.team-icon-link:hover {
+  background-color: #404bbf;
 }
 /** ----------НОВА СЕКЦІЯ Portfolio---------- **/
 
@@ -351,6 +425,39 @@ li {
   background: #fff;
   border-top: none;
 }
+.portfolio-cover-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-list-item:hover .portfolio-text-wrap {
+  transform: translateY(0);
+}
+
+.portfolio-text-wrap {
+  display: flex;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: #4d5ae5;
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 164px;
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-cover-text {
+  color: #f4f4fd;
+  font-size: 16px;
+  line-height: 1.5; /* 150% */
+  letter-spacing: 0.02em;
+}
+
 /** ----------НОВА СЕКЦІЯ footer---------- **/
 
 .footer {
@@ -360,7 +467,6 @@ li {
 }
 
 .footer-link {
-  display: inline-block;
   color: #4d5ae5;
   font-family: "Raleway", sans-serif;
   font-size: 18px;
@@ -370,6 +476,8 @@ li {
   text-transform: uppercase;
   text-decoration: none;
   margin-bottom: 16px;
+  width: 115px;
+  height: 24px;
 }
 
 .footer-link-span {
@@ -382,4 +490,44 @@ li {
   letter-spacing: 0.02em;
   max-width: 264px;
   max-height: 72px;
+}
+
+.footer-icon {
+}
+
+.footer-title-menu {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+  width: 97px;
+  height: 24px;
+}
+.footer-icon-list {
+  display: flex;
+  gap: 16px;
+  width: 208px;
+  height: 40px;
+}
+.footer-icon-item {
+  width: 40px;
+  height: 40px;
+}
+.footer-icon-link {
+  background-color: #4d5ae5;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-icon-link:hover {
+  background-color: #31d0aa;
 }
