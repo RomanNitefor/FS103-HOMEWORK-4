@@ -459,7 +459,6 @@ li {
   top: 0;
   background: #4d5ae5;
   padding: 40px 32px;
-  padding-bottom: 164px;
   transform: translateY(100%);
   transition-property: transform;
   transition-duration: 250ms;
